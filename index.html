@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Visão Computacional</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+    * {
+    box-sizing: border-box;
+    }
+
+    body {
+    font-family: Arial, Helvetica, sans-serif;
+    }
+
+    /* Style the header */
+    header {
+    background-color: #666;
+    padding: 30px;
+    text-align: center;
+    font-size: 35px;
+    color: white;
+    }
+
+    /* Create two columns/boxes that floats next to each other */
+    nav {
+    float: left;
+    width: 30%;
+    height: 600px; /* only for demonstration, should be removed */
+    background: #ccc;
+    padding: 20px;
+    }
+
+    /* Style the list inside the menu */
+    nav ul {
+    list-style-type: none;
+    padding: 0;
+    }
+
+    article {
+    float: left;
+    padding: 20px;
+    width: 70%;
+    background-color: #f1f1f1;
+    height: 600px; /* only for demonstration, should be removed */
+    }
+
+    /* Clear floats after the columns */
+    section::after {
+    content: "";
+    display: table;
+    clear: both;
+    }
+
+    /* Style the footer */
+    footer {
+    background-color: #777;
+    padding: 10px;
+    text-align: center;
+    color: white;
+    }
+
+    /* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
+    @media (max-width: 600px) {
+    nav, article {
+        width: 100%;
+        height: auto;
+    }
+    }
+    </style>
+</head>
+
+
+<body>
+
+
+<header>
+  <img src="Avatar.png" alt="Minha foto">
+</header>
+
+<section>
+  <nav>
+    <ul>
+        <h1>Visão Computacional </h1>
+        <p>Na disciplina de Visão computacional eu me interesso por alguns temas: de Detecção e Reconhecimento de Objetos, Visão computacional
+            com Deep Learning
+        </p>
+
+        <li>Detecção e Reconhecimento de Objetos </li>
+        <li>Visão Computacional com DeepLearning</li>
+        <li>Reconhecimento Facil e Biométrico</li>
+
+    </ul>
+  </nav>
+  
+  <article>
+    <h1>Video de Teste </h1>
+        <video width="320" height="240" controls>
+        <source src="movie.mp4" type="video/mp4">
+    </video> 
+    <h1>Áudio de Teste </h1>
+        <audio controls>
+            <source src="Audio.ogg" type="audio/ogg">
+        </audio>
+  </article>
+</section>
+
+<section>
+  <nav>
+    <ul>
+        <h1>Video do Youtube </h1>
+        <p>Video no Youtube falando sobre Visão computacional
+        </p>
+    </ul>
+  </nav>
+  
+  <article>
+        <iframe 
+            width="879" height="494" src="https://www.youtube.com/embed/gYLgATB2h_Q" 
+            title="Visão Computacional: O que é e como funciona?" frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+        </iframe>
+  </article>
+</section>
+
+</body>
+</html>
