@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Processamento Básico nas Imagens e Vídeos</title>
+   <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      background-color: #f9f9f9;
+      color: #333;
+      line-height: 1.6;
+    }
+    h1, h2 {
+      color: #2c3e50;
+    }
+    ul {
+      margin-left: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Processamento Básico nas Imagens e Vídeos</h1>
+
+  <h2>(A) Leitura de imagem em arquivo: </h2>
+  <p>
+    O segundo argumento da função cv.imread() é o flag que determina como a imagem será carregada. Quando você passa “0” 
+    como flag, está instruindo o OpenCV a carregar a imagem em escala de cinza. 
+  </p>
+
+    <h2>(B) Leitura de vídeo em arquivo: </h2>
+
+    <p>
+    A parte do código responsável em acelerar ou diminuir a velocidade com que os frames são carregados é a função time.sleep(). 
+    Note no print acima que ao colocarmos “1/50” alteramos o tempo de carregamento 
+    para 20 ms o próximo frame acelerando o vídeo e para desacelerarmos trocamos para “1/10” indo para 100 ms o carregamento. </p>
+
+    <div style="text-align: center;">
+  <img src="itemB.png" alt="Minha foto", style="height: 550px; width: 550px;" >
+  </div>
+
+
+  <h2>(C) Leitura de imagem de câmera: </h2>
+  <p> O comando responsável por salvar a variável que contém a imagem é o cv.imwrite, com os parâmetros do nome do arquivo e do frame em questão, 
+    armazenado anteriormente em cap.read(). Note no print acima foi adicionado o comando cv.imwrite(‘foto1.png’,frame).</p>
+
+    <div style="text-align: center;">
+  <img src="itemC.png" alt="Minha foto", style="height: 550px; width: 550px;" >
+  </div>
+    <p>
+    Na imagem abaixo mostra a foto1.png gerada ao clicar ‘x’.
+  </p>
+      <div style="text-align: center;">
+  <img src="Arquivos.png" alt="Minha foto", style="height: 250px; width: 950px;" >
+  </div>
+   <h2>(D) Gravação de vídeo da câmera:</h2>
+  </p>
+      <div style="text-align: center;">
+  <img src="ItemD.png" alt="Minha foto", style="height: 550px; width: 550px;" >
+  </div>
+
+
+  <h2>3. Como se usa o sistema</h2>
+  <p>
+    O sistema será projetado para operar de forma autônoma, com interação mínima do usuário final.
+  </p>
+  <p>
+    Inicialmente, o administrador deverá realizar o cadastro de rostos autorizados por meio de uma interface simples, acessível via aplicativo ou navegador web.
+  </p>
+  <p>
+    Após essa configuração inicial, o sistema funcionará continuamente, realizando a leitura facial através de uma câmera instalada no ponto de entrada e
+    tomando decisões automaticamente com base nos dados cadastrados.
+  </p>
+  <p>
+    Além disso, o usuário poderá acompanhar o histórico de acessos e receber notificações em tempo real em caso de tentativas de acesso não autorizadas.
+  </p>
+
+  <h2>4. Benefícios do sistema ao usuário</h2>
+  <ul>
+    <li><strong>Segurança aumentada:</strong> bloqueia automaticamente tentativas de acesso de pessoas não reconhecidas.</li>
+    <li><strong>Conveniência:</strong> dispensa o uso de chaves, senhas ou cartões, utilizando apenas o reconhecimento facial.</li>
+    <li><strong>Autonomia e monitoramento remoto:</strong> permite monitoramento e alertas em tempo real mesmo à distância.</li>
+    <li><strong>Escalabilidade:</strong> pode ser facilmente adaptado para ambientes maiores, mantendo a mesma base tecnológica.</li>
+  </ul>
+
+</body>
+</html> 
