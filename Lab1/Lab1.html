@@ -2,8 +2,8 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Processamento Básico nas Imagens e Vídeos</title>
-   <style>
+  <title>Relatório: Processamento Básico nas Imagens e Vídeos</title>
+  <style>
     body {
       font-family: Arial, sans-serif;
       margin: 40px;
@@ -11,78 +11,111 @@
       color: #333;
       line-height: 1.6;
     }
-    h1, h2 {
+    h1, h2, h3 {
       color: #2c3e50;
     }
     ul {
       margin-left: 20px;
     }
+    img {
+      margin: 20px 0;
+      max-width: 100%;
+      height: auto;
+    }
+    .center {
+      text-align: center;
+    }
   </style>
 </head>
 <body>
 
-  <h1>Processamento Básico nas Imagens e Vídeos</h1>
+  <h1>Relatório: Processamento Básico nas Imagens e Vídeos</h1>
 
-  <h2>(A) Leitura de imagem em arquivo: </h2>
+  <h2>Autores</h2>
+          <ul>
+
+          <li >Nome: Jefferson Paiva de Paula  R.A.: 11201721192</li>
+          <li> Nome: Octavio Saviano Neto      R.A.: 11201921665</li>
+          <li> Nome: Tiago Cornetta Campos     R.A.: 11201922123</li>
+          </ul>
+
+  <h2>Datas</h2>
+  <p><strong>Data de realização dos experimentos:</strong> 10 de junho de 2025</p>
+  <p><strong>Data de publicação do relatório:</strong> 23 de junho de 2025</p>
+
+  <h2>Introdução</h2>
   <p>
-    O segundo argumento da função cv.imread() é o flag que determina como a imagem será carregada. Quando você passa “0” 
-    como flag, está instruindo o OpenCV a carregar a imagem em escala de cinza. 
+    Este relatório tem como objetivo apresentar os procedimentos realizados e as observações feitas durante a execução
+    de experimentos básicos com leitura e gravação de imagens e vídeos utilizando a biblioteca OpenCV. A proposta visa
+    introduzir conceitos práticos de processamento de imagem e vídeo, facilitando o aprendizado da manipulação de arquivos
+    visuais em tempo real.
   </p>
 
-    <h2>(B) Leitura de vídeo em arquivo: </h2>
+  <h2>Procedimentos Experimentais</h2>
 
-    <p>
-    A parte do código responsável em acelerar ou diminuir a velocidade com que os frames são carregados é a função time.sleep(). 
-    Note no print acima que ao colocarmos “1/50” alteramos o tempo de carregamento 
-    para 20 ms o próximo frame acelerando o vídeo e para desacelerarmos trocamos para “1/10” indo para 100 ms o carregamento. </p>
+  <h3>A) Leitura de imagem em arquivo</h3>
+  <p>
+    O segundo argumento da função <code>cv.imread()</code> é o flag que determina como a imagem será carregada. Quando se utiliza “0” como flag, 
+    o OpenCV carrega a imagem em escala de cinza.
+  </p>
 
-    <div style="text-align: center;">
-  <img src="itemB.png" alt="Minha foto", style="height: 550px; width: 550px;" >
+  <h3>B) Leitura de vídeo em arquivo</h3>
+  <p>
+    A função <code>time.sleep()</code> é responsável por controlar a velocidade dos frames. Ajustar o valor, como por exemplo “1/50”, 
+    acelera o carregamento dos quadros (20 ms por frame), enquanto “1/10” desacelera (100 ms por frame).
+  </p>
+  <div class="center">
+    <img src="itemB.png" alt="Leitura de vídeo">
   </div>
 
-
-  <h2>(C) Leitura de imagem de câmera: </h2>
-  <p> O comando responsável por salvar a variável que contém a imagem é o cv.imwrite, com os parâmetros do nome do arquivo e do frame em questão, 
-    armazenado anteriormente em cap.read(). Note no print acima foi adicionado o comando cv.imwrite(‘foto1.png’,frame).</p>
-
-    <div style="text-align: center;">
-  <img src="itemC.png" alt="Minha foto", style="height: 550px; width: 550px;" >
-  </div>
-    <p>
-    Na imagem abaixo mostra a foto1.png gerada ao clicar ‘x’.
+  <h3>C) Leitura de imagem da câmera</h3>
+  <p>
+    Para capturar uma imagem da câmera e salvar em disco, utiliza-se o comando <code>cv.imwrite()</code> com os parâmetros 
+    do nome do arquivo e o frame capturado via <code>cap.read()</code>.
   </p>
-      <div style="text-align: center;">
-  <img src="Arquivos.png" alt="Minha foto", style="height: 250px; width: 950px;" >
+  <div class="center">
+    <img src="itemC.png" alt="Leitura de imagem da câmera">
   </div>
-   <h2>(D) Gravação de vídeo da câmera:</h2>
+  <p>
+    Abaixo, a imagem <code>foto1.png</code> gerada após pressionar a tecla 'x'.
   </p>
-      <div style="text-align: center;">
-  <img src="ItemD.png" alt="Minha foto", style="height: 550px; width: 550px;" >
+  <div class="center">
+    <img src="Arquivos.png" alt="Imagem salva">
   </div>
 
+  <h3>D) Gravação de vídeo da câmera</h3>
+  <p>
+    Comentando o comando <code>cv.flip(0)</code>, elimina-se a inversão da imagem capturada. Para fluidez do vídeo, foi adotado o valor de 15 FPS,
+    que é o mínimo recomendado para visualização adequada.
+  </p>
+  <div class="center">
+    <img src="ItemD.png" alt="Gravação de vídeo da câmera">
+  </div>
 
-  <h2>3. Como se usa o sistema</h2>
+  <h2>Análise e Discussão dos Estudos Realizados</h2>
   <p>
-    O sistema será projetado para operar de forma autônoma, com interação mínima do usuário final.
-  </p>
-  <p>
-    Inicialmente, o administrador deverá realizar o cadastro de rostos autorizados por meio de uma interface simples, acessível via aplicativo ou navegador web.
-  </p>
-  <p>
-    Após essa configuração inicial, o sistema funcionará continuamente, realizando a leitura facial através de uma câmera instalada no ponto de entrada e
-    tomando decisões automaticamente com base nos dados cadastrados.
-  </p>
-  <p>
-    Além disso, o usuário poderá acompanhar o histórico de acessos e receber notificações em tempo real em caso de tentativas de acesso não autorizadas.
+    A leitura de imagens estáticas e em tempo real demonstrou a importância dos parâmetros passados às funções do OpenCV.
+    A manipulação correta desses parâmetros permite ajustar a visualização conforme a necessidade do usuário. Além disso,
+    a gravação e captura automática mostraram o potencial da biblioteca em aplicações reais, como sistemas de monitoramento.
   </p>
 
-  <h2>4. Benefícios do sistema ao usuário</h2>
+  <h3>E) Questão</h3>
+  <p><strong>Se for necessário alterar a imagem, ou seja, realizando alguma operação de processamento nela, em que ponto dos quatro programas estudados isso deve ser realizado?</strong></p>
+  <p><strong>Resposta:</strong> Devemos processar no 4º script, onde temos a saída do vídeo e o salvamento do frame conforme o FPS inserido.</p>
+
+  <h2>Conclusões</h2>
+  <p>
+    Os experimentos permitiram compreender o funcionamento básico da leitura e gravação de imagens e vídeos com OpenCV.
+    A prática com esses recursos reforçou o conhecimento sobre tempo de captura, formatos de imagem, controle de FPS e interação com o usuário.
+    Esses conceitos são essenciais para aplicações futuras em visão computacional e automação.
+  </p>
+
+  <h2>Referências Consultadas e Indicadas</h2>
   <ul>
-    <li><strong>Segurança aumentada:</strong> bloqueia automaticamente tentativas de acesso de pessoas não reconhecidas.</li>
-    <li><strong>Conveniência:</strong> dispensa o uso de chaves, senhas ou cartões, utilizando apenas o reconhecimento facial.</li>
-    <li><strong>Autonomia e monitoramento remoto:</strong> permite monitoramento e alertas em tempo real mesmo à distância.</li>
-    <li><strong>Escalabilidade:</strong> pode ser facilmente adaptado para ambientes maiores, mantendo a mesma base tecnológica.</li>
+    <li>Documentação oficial do OpenCV: <a href="https://docs.opencv.org/" target="_blank">https://docs.opencv.org/</a></li>
+    <li>Exemplos de código em Python + OpenCV no GitHub</li>
+    <li>Slides e materiais da disciplina</li>
   </ul>
 
 </body>
-</html> 
+</html>
