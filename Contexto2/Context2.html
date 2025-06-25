@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <title>Modelagem Funcional do Sistema (MF) – Controle de Acesso por Visão Computacional</title>
+</head>
+<body>
+
+<h1>Modelagem Funcional do Sistema (MF)</h1>
+
+<h2>1. Problema, Contexto e Justificativa</h2>
+<p>
+Em ambientes escolares, métodos manuais de controle de acesso (listas, cartões) são
+ineficientes e suscetíveis a falhas. A ausência de um monitoramento automatizado
+permite que pessoas não autorizadas circulem em áreas restritas, comprometendo a
+segurança de alunos, professores e colaboradores.
+O sistema proposto utiliza câmeras e inteligência artificial para identificar, em
+tempo real, se um indivíduo pode ou não acessar determinado ambiente.
+</p>
+
+<h2>2. Objetivo Geral</h2>
+<p>
+Fornecer uma solução automatizada de <strong>controle de acesso por reconhecimento facial</strong>,
+capaz de autorizar ou negar a entrada de maneira rápida e sem necessidade de cartões,
+senhas ou intervenção humana. Para o usuário leigo, o sistema simplesmente “reconhece
+o rosto” e abre (ou não) a porta.
+</p>
+
+<h2>3. Visão Funcional</h2>
+
+<h3>3.1. Atores</h3>
+<ul>
+  <li><strong>Administrador</strong> – cadastra rostos autorizados, consulta logs e configura alertas.</li>
+  <li><strong>Usuário Autorizado</strong> – tem o rosto registrado; obtém acesso automaticamente.</li>
+  <li><strong>Intruso</strong> – não possui cadastro; acesso deve ser negado.</li>
+  <li><strong>Sistema de Controle de Acesso</strong> – hardware + software de visão computacional que decide permitir ou bloquear a entrada.</li>
+</ul>
+
+<h3>3.2. Entradas</h3>
+<ul>
+  <li>Fluxo de vídeo da câmera posicionada no ponto de entrada.</li>
+  <li>Banco de rostos autorizados (imagens + IDs).</li>
+  <li>Comandos do administrador (cadastrar, remover, consultar).</li>
+</ul>
+
+<h3>3.3. Processos Principais</h3>
+<ol>
+  <li><strong>Captura de Imagem</strong> – extrai frames contínuos da câmera.</li>
+  <li><strong>Detecção Facial</strong> – localiza rostos nos frames.</li>
+  <li><strong>Reconhecimento Facial</strong> – compara o rosto detectado com o banco de dados.</li>
+  <li><strong>Decisão de Acesso</strong>
+    <ul>
+      <li>Rosto reconhecido: liberar porta e registrar acesso.</li>
+      <li>Rosto não reconhecido: manter porta trancada, registrar tentativa e notificar.</li>
+    </ul>
+  </li>
+  <li><strong>Registro e Notificação</strong> – grava logs (data/hora, ID ou “desconhecido”, resultado) e envia alertas em caso de tentativa não autorizada.</li>
+</ol>
+
+<h3>3.4. Saídas</h3>
+<ul>
+  <li>Sinal elétrico para destravar ou manter travada a porta.</li>
+  <li>Log de acesso (usuário, hora, status).</li>
+  <li>Notificação push/e-mail para tentativas não autorizadas.</li>
+</ul>
+
+<h3>3.5. Requisitos Funcionais</h3>
+<table border="1" cellpadding="4">
+  <tr><th>ID</th><th>Descrição</th></tr>
+  <tr><td>RF01</td><td>Detectar rostos em tempo real com a câmera instalada.</td></tr>
+  <tr><td>RF02</td><td>Comparar rostos detectados com o banco de usuários autorizados.</td></tr>
+  <tr><td>RF03</td><td>Destravar a porta quando o rosto for reconhecido.</td></tr>
+  <tr><td>RF04</td><td>Manter a porta travada caso o rosto não conste no banco ou a detecção falhe.</td></tr>
+  <tr><td>RF05</td><td>Registrar todos os eventos de acesso (autorizado ou negado).</td></tr>
+  <tr><td>RF06</td><td>Permitir cadastro e remoção de usuários via interface web simples.</td></tr>
+  <tr><td>RF07</td><td>Enviar notificações em tempo real para tentativas de acesso não autorizadas.</td></tr>
+</table>
+
+<h2>4. Interatividade do Usuário</h2>
+<ul>
+  <li><strong>Administrador</strong>
+    <ul>
+      <li>Cadastro inicial de rostos (upload de fotos ou captura direta).</li>
+      <li>Consulta ao histórico de acessos via navegador ou app.</li>
+      <li>Configuração de alertas.</li>
+    </ul>
+  </li>
+  <li><strong>Usuário Autorizado</strong> – simplesmente aproxima-se da câmera; sistema libera o acesso.</li>
+  <li><strong>Intruso</strong> – sistema nega acesso e gera alerta.</li>
+</ul>
+
+<h2>5. Benefícios ao Usuário</h2>
+<ul>
+  <li><strong>Segurança</strong> – bloqueio automático a pessoas não cadastradas.</li>
+  <li><strong>Conveniência</strong> – eliminação de cartões, senhas ou chaves.</li>
+  <li><strong>Monitoramento Remoto</strong> – acesso a logs e alertas de qualquer lugar.</li>
+  <li><strong>Escalabilidade</strong> – mesma tecnologia aplicável a múltiplas entradas ou unidades escolares.</li>
+</ul>
+
+<h2>6. Resultado Final Esperado</h2>
+<p>
+Para o usuário leigo, o sistema será percebido como uma “porta inteligente” que
+se abre apenas quando reconhece o rosto autorizado, exibindo um sinal visual ou
+sonoro de confirmação. Em caso de rosto desconhecido, a porta permanece
+fechada e um alerta é disparado para o responsável.
+</p>
+
+</body>
+</html>

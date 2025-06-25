@@ -1,122 +1,187 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <title>Relatório: Processamento Básico nas Imagens e Vídeos</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 40px;
-      background-color: #f9f9f9;
-      color: #333;
-      line-height: 1.6;
-    }
-    h1, h2, h3 {
-      color: #2c3e50;
-    }
-    ul {
-      margin-left: 20px;
-    }
-    img {
-      margin: 20px 0;
-      max-width: 100%;
-      height: auto;
-    }
-    .center {
-      text-align: center;
-    }
-  </style>
+  <title>Relatório: Processamento de Imagens e Vídeos — Passo a Passo</title>
 </head>
 <body>
 
-  <h1>Relatório: Processamento Básico nas Imagens e Vídeos</h1>
+<h1>Relatório: Processamento de Imagens e Vídeos — Passo a Passo</h1>
 
-  <h2>Autores</h2>
-          <ul>
+<h2>Autores</h2>
+<ul>
+  <li>Jefferson Paiva de Paula — R.A. 11201721192</li>
+  <li>Octavio Saviano Neto — R.A. 11201921665</li>
+  <li>Tiago Cornetta Campos — R.A. 11201922123</li>
+</ul>
 
-          <li >Nome: Jefferson Paiva de Paula  R.A.: 11201721192</li>
-          <li> Nome: Octavio Saviano Neto      R.A.: 11201921665</li>
-          <li> Nome: Tiago Cornetta Campos     R.A.: 11201922123</li>
-          </ul>
+<h2>Datas</h2>
+<p>Experimentos: 10/06/2025</p>
+<p>Publicação: 23/06/2025</p>
 
-  <h2>Datas</h2>
-  <p><strong>Data de realização dos experimentos:</strong> 10 de junho de 2025</p>
-  <p><strong>Data de publicação do relatório:</strong> 23 de junho de 2025</p>
+<!-- ----------------------------------------------------------- -->
+<h2>Introdução</h2>
+<p>
+Este relatório descreve, de forma prática e sequencial, o uso da biblioteca
+<strong>OpenCV</strong> para <em>capturar</em>, <em>exibir</em> e <em>gravar</em>
+imagens e vídeos em Python.  O objetivo principal foi
+</p>
+<ul>
+  <li>compreender a comunicação entre hardware (webcam/disco) e software,</li>
+  <li>avaliar o impacto de parâmetros críticos (resolução, <abbr title="frames por segundo">FPS</abbr>, codecs) na
+      qualidade do material gerado,</li>
+  <li>experimentar ajustes de velocidade de reprodução sem alterar a taxa
+      de captura, demonstrando conceitos de <em>time-lapse</em> e <em>slow-motion</em>.</li>
+</ul>
+<p>
+Além de consolidar a teoria básica de processamento de imagens,
+pretendemos fornecer um roteiro replicável que possa ser aplicado em
+projetos de monitoramento, realidade aumentada e visão computacional.
+</p>
 
-  <h2>Introdução</h2>
-  <p>
-    Este relatório tem como objetivo apresentar os procedimentos realizados e as observações feitas durante a execução
-    de experimentos básicos com leitura e gravação de imagens e vídeos utilizando a biblioteca OpenCV. A proposta visa
-    introduzir conceitos práticos de processamento de imagem e vídeo, facilitando o aprendizado da manipulação de arquivos
-    visuais em tempo real.
-  </p>
+<!-- ----------------------------------------------------------- -->
+<h2>Parte 1 – Procedimentos Passo a Passo</h2>
 
-  <h2>Procedimentos Experimentais</h2>
+<!-- A) -->
+<h3>A) Leitura de imagem em arquivo</h3>
+<ol>
+  <li>Importar a biblioteca:<br> <code>import cv2 as cv</code></li>
+  <li>Carregar em escala de cinza:<br>
+      <code>img = cv.imread("foto.png", 0)</code></li>
+  <li>Exibir na tela:<br> <code>cv.imshow("Cinza", img)</code></li>
+  <li>Encerrar a janela com <code>cv.waitKey(0)</code> e
+      <code>cv.destroyAllWindows()</code>.</li>
+</ol>
 
-  <h3>A) Leitura de imagem em arquivo</h3>
-  <p>
-    O segundo argumento da função <code>cv.imread()</code> é o flag que determina como a imagem será carregada. Quando se utiliza “0” como flag, 
-    o OpenCV carrega a imagem em escala de cinza.
-  </p>
+<!-- B) -->
+<h3>B) Leitura de vídeo em arquivo</h3>
+<ol>
+  <li><code>cap = cv.VideoCapture("video.mp4")</code></li>
+  <li>No loop:
+    <pre>
+ok, frame = cap.read()
+cv.imshow("Frame", frame)
+# acelerar ou desacelerar:
+# time.sleep(1/50)  # 20 ms  – mais rápido
+# time.sleep(1/10)  # 100 ms – mais lento
+    </pre>
+  </li>
+  <li>Finalizar com <code>cap.release()</code>.</li>
+</ol>
+<img src="itemB.png" alt="Leitura de vídeo">
 
-  <h3>B) Leitura de vídeo em arquivo</h3>
-  <p>
-    A função <code>time.sleep()</code> é responsável por controlar a velocidade dos frames. Ajustar o valor, como por exemplo “1/50”, 
-    acelera o carregamento dos quadros (20 ms por frame), enquanto “1/10” desacelera (100 ms por frame).
-  </p>
-  <div class="center">
-    <img src="itemB.png" alt="Leitura de vídeo">
-  </div>
+<!-- C) -->
+<h3>C) Captura de imagem da câmera</h3>
+<ol>
+  <li><code>cap = cv.VideoCapture(0)</code></li>
+  <li>Ler um frame:<br> <code>_, frame = cap.read()</code></li>
+  <li>Salvar ao pressionar <kbd>x</kbd>:<br>
+      <code>cv.imwrite("foto1.png", frame)</code></li>
+  <li>Encerrar com <code>cap.release()</code>.</li>
+</ol>
+<img src="itemC.png" alt="Leitura de imagem da câmera">
+<p>Imagem gerada (<code>foto1.png</code>):</p>
+<img src="Arquivos.png" alt="Imagem salva">
 
-  <h3>C) Leitura de imagem da câmera</h3>
-  <p>
-    Para capturar uma imagem da câmera e salvar em disco, utiliza-se o comando <code>cv.imwrite()</code> com os parâmetros 
-    do nome do arquivo e o frame capturado via <code>cap.read()</code>.
-  </p>
-  <div class="center">
-    <img src="itemC.png" alt="Leitura de imagem da câmera">
-  </div>
-  <p>
-    Abaixo, a imagem <code>foto1.png</code> gerada após pressionar a tecla 'x'.
-  </p>
-  <div class="center">
-    <img src="Arquivos.png" alt="Imagem salva">
-  </div>
+<!-- D) -->
+<h3>D) Gravação de vídeo da câmera</h3>
+<ol>
+  <li>Definir FPS = 15 (mínimo recomendado para fluidez).</li>
+  <li>Capturar largura e altura da câmera.</li>
+  <li>Configurar codec XVID e criar
+      <code>VideoWriter("saida.avi", fourcc, 15, (w, h))</code>.</li>
+  <li>No loop: <code>out.write(frame)</code> e
+      <code>cv.imshow("preview", frame)</code>.</li>
+  <li>Liberar recursos no final.</li>
+</ol>
+<img src="ItemD.png" alt="Gravação de vídeo">
 
-  <h3>D) Gravação de vídeo da câmera</h3>
-  <p>
-    Comentando o comando <code>cv.flip(0)</code>, elimina-se a inversão da imagem capturada. Para fluidez do vídeo, foi adotado o valor de 15 FPS,
-    que é o mínimo recomendado para visualização adequada.
-  </p>
-  <div class="center">
-    <img src="ItemD.png" alt="Gravação de vídeo da câmera">
-  </div>
+<!-- E) -->
+<h3>E) Onde inserir o processamento?</h3>
+<p>
+Inserir o processamento imediatamente após ler o <em>frame</em> e antes de
+<code>out.write(frame)</code>, garantindo que a versão modificada seja a
+armazenada.
+</p>
 
-  <h3>E) Questão</h3>
-  <p><strong>Se for necessário alterar a imagem, ou seja, realizando alguma operação de processamento nela, em que ponto dos quatro programas estudados isso deve ser realizado?</strong></p>
-  <p><strong>Resposta:</strong> Devemos processar no 4º script, onde temos a saída do vídeo e o salvamento do frame conforme o FPS inserido.</p>
+<!-- ----------------------------------------------------------- -->
+<h2>Parte 2 – Resultados Visuais</h2>
 
+<h3>Foto da equipe</h3>
+<img src="fotogp.png" alt="Equipe reunida">
 
-  <h2>Análise e Discussão dos Estudos Realizados</h2>
-  <p>
-    A leitura de imagens estáticas e em tempo real demonstrou a importância dos parâmetros passados às funções do OpenCV.
-    A manipulação correta desses parâmetros permite ajustar a visualização conforme a necessidade do usuário. Além disso,
-    a gravação e captura automática mostraram o potencial da biblioteca em aplicações reais, como sistemas de monitoramento.
-  </p>
+<h3>Avatar</h3>
+<img src="Avatar.png" alt="Avatar montado">
 
-  <h2>Conclusões</h2>
-  <p>
-    Os experimentos permitiram compreender o funcionamento básico da leitura e gravação de imagens e vídeos com OpenCV.
-    A prática com esses recursos reforçou o conhecimento sobre tempo de captura, formatos de imagem, controle de FPS e interação com o usuário.
-    Esses conceitos são essenciais para aplicações futuras em visão computacional e automação.
-  </p>
+<h3>Vídeos de teste</h3>
+<p>Movimentos lentos</p>
+<video controls width="400"><source src="TiagoVideoLento.mp4" type="video/mp4"></video>
+<video controls width="400"><source src="CarteiraDevagar.mp4" type="video/mp4"></video>
+<p>Movimentos rápidos</p>
+<video controls width="400"><source src="CarteiraRapido.mp4" type="video/mp4"></video>
+<video controls width="400"><source src="JeffersonVideoRapido.mp4" type="video/mp4"></video>
 
-  <h2>Referências Consultadas e Indicadas</h2>
-  <ul>
-    <li>Documentação oficial do OpenCV: <a href="https://docs.opencv.org/" target="_blank">https://docs.opencv.org/</a></li>
-    <li>Exemplos de código em Python + OpenCV no GitHub</li>
-    <li>Slides e materiais da disciplina</li>
-  </ul>
+<!-- ----------------------------------------------------------- -->
+<h2>Controlando a velocidade de reprodução</h2>
+<table border="1" cellpadding="6">
+  <tr><th>Efeito</th><th>Passos</th></tr>
+  <tr>
+    <td>Acelerar (time-lapse)</td>
+    <td>
+      Capturar a 15 fps.<br>
+      Declarar 30 fps no arquivo:<br>
+      <code>out = cv.VideoWriter("video_rapido.avi", fourcc, 30, (w, h))</code>
+    </td>
+  </tr>
+  <tr>
+    <td>Desacelerar (slow-motion)</td>
+    <td>
+      Capturar a 60 fps (se disponível).<br>
+      Declarar 15 fps no arquivo:<br>
+      <code>out = cv.VideoWriter("video_lento.avi", fourcc, 15, (w, h))</code>
+    </td>
+  </tr>
+</table>
+<p>Velocidade de reprodução = fps declarado ÷ fps capturado</p>
+
+<!-- ----------------------------------------------------------- -->
+<h2>Análise e Discussão</h2>
+<p>
+Os experimentos comprovaram que o <strong>FPS declarado</strong> no
+<code>VideoWriter</code> influencia diretamente a percepção de velocidade, sem
+necessidade de alterar a taxa de captura da câmera. Ao duplicar ou descartar
+quadros, é possível atingir efeitos cinematográficos simples com custo
+computacional mínimo.
+</p>
+<p>
+Também observamos que:
+</p>
+<ul>
+  <li>Resoluções maiores aumentam consideravelmente o tamanho do arquivo, mas
+      não representam ganho perceptível quando o destino é uma janela 640×480.</li>
+  <li>Codecs com compressão interframe (ex.: XVID) mantêm boa qualidade para
+      15 fps; porém, em cenas de movimento rápido, artefatos podem aparecer.</li>
+  <li>Programação de teclas (<kbd>x</kbd> para capturar, <kbd>q</kbd> para
+      sair) facilita a interação em tempo real e evita perda de quadros
+      importantes.</li>
+</ul>
+
+<!-- ----------------------------------------------------------- -->
+<h2>Conclusões</h2>
+<p>
+Dominar as etapas apresentadas — captura, exibição, gravação e ajuste de FPS —
+fornece uma base sólida para aplicações de visão computacional.
+O controle da velocidade de reprodução mostrou-se simples de implementar e
+fundamental para storytelling, análise biomecânica e sistemas de
+monitoramento.  Trabalhos futuros podem explorar filtros em tempo real,
+codificação H.264 e técnicas de estabilização para melhorar ainda mais a
+qualidade dos resultados.
+</p>
+
+<!-- ----------------------------------------------------------- -->
+<h2>Referência</h2>
+<ul>
+  <li>Documentação OpenCV (Python).</li>
+</ul>
 
 </body>
 </html>
