@@ -44,18 +44,19 @@ projetos de monitoramento, realidade aumentada e visão computacional.
 <!-- A) -->
 <h3>A) Leitura de imagem em arquivo</h3>
 <ol>
-  <li>Para detectar o porque da imagem em cinza<li>
+  <li>Para detectar o porque da imagem em cinza</li>
   <li>Abrir o código python3 L1_1_img.py</li>
   <li>Validar a linha do código:<br>
       <code>img = cv.imread("foto.png", 0)</code></li>
   <li>Mudar para o parametro para 1</code></li>
+  <li>Execute o programa </li>
   <li>Confirmar que é essa parte do código que altera a imagem em tons de cinza quando o parâmetro é zero.</li>
 </ol>
 
 <!-- B) -->
 <h3>B) Leitura de vídeo em arquivo</h3>
 <ol>
-  <li>Abrir o código python3 L1_2_video.py <li>
+  <li>Abrir o código python3 L1_2_video.py </li>
   <li>No loop adicionar as seguintes linhas:
     <pre>
 ok, frame = cap.read()
@@ -65,6 +66,7 @@ cv.imshow("Frame", frame)
 # time.sleep(1/10)  # 100 ms – mais lento
     </pre>
   </li>
+  <li> Execute o programa</li>
   <li> Testar os dois time.sleep <li>
   <li>Concluir que 1/50 acelera a velocidade do vídeo e 1/10 diminui. De tal forma a parte que dita a velocidade é o comando time.sleep.</li>
 </ol>
@@ -73,12 +75,13 @@ cv.imshow("Frame", frame)
 <!-- C) -->
 <h3>C) Captura de imagem da câmera</h3>
 <ol>
-  <li> Abrir o código python3 L1_3_webcam.py <li>
-  <li><code>cap = cv.VideoCapture(0)</code></li>
-  <li>Ler um frame:<br> <code>_, frame = cap.read()</code></li>
-  <li>Salvar ao pressionar <kbd>x</kbd>:<br>
-      <code>cv.imwrite("foto1.png", frame)</code></li>
-  <li>Encerrar com <code>cap.release()</code>.</li>
+  <li> Abrir o código python3 L1_3_webcam.py /<li>
+  <li>Adicionar o comando<code>
+    elif cv.waitkey(1) = ord('x')
+    cv.imwrite('foto1.png',frame)</code></li>
+  <li>Assim será criado que quando pressionado a tecla X será salvado o frame com o nome foto1.png</li>
+  <li>Execute o programa</li>
+  <li>Pressione a tecla x</li>
 </ol>
 <img src="itemC.png" alt="Leitura de imagem da câmera">
 <p>Imagem gerada (<code>foto1.png</code>):</p>
