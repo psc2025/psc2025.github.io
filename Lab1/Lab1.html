@@ -39,24 +39,24 @@ projetos de monitoramento, realidade aumentada e visão computacional.
 </p>
 
 <!-- ----------------------------------------------------------- -->
-<h2>Parte 1 – Procedimentos Passo a Passo</h2>
+<h2>Parte 1 – O Procedimentos será explicado Passo a Passo para cada um dos exercícios propostos</h2>
 
 <!-- A) -->
 <h3>A) Leitura de imagem em arquivo</h3>
 <ol>
-  <li>Importar a biblioteca:<br> <code>import cv2 as cv</code></li>
-  <li>Carregar em escala de cinza:<br>
+  <li>Para detectar o porque da imagem em cinza<li>
+  <li>Abrir o código python3 L1_1_img.py</li>
+  <li>Validar a linha do código:<br>
       <code>img = cv.imread("foto.png", 0)</code></li>
-  <li>Exibir na tela:<br> <code>cv.imshow("Cinza", img)</code></li>
-  <li>Encerrar a janela com <code>cv.waitKey(0)</code> e
-      <code>cv.destroyAllWindows()</code>.</li>
+  <li>Mudar para o parametro para 1</code></li>
+  <li>Confirmar que é essa parte do código que altera a imagem em tons de cinza quando o parâmetro é zero.</li>
 </ol>
 
 <!-- B) -->
 <h3>B) Leitura de vídeo em arquivo</h3>
 <ol>
-  <li><code>cap = cv.VideoCapture("video.mp4")</code></li>
-  <li>No loop:
+  <li>Abrir o código python3 L1_2_video.py <li>
+  <li>No loop adicionar as seguintes linhas:
     <pre>
 ok, frame = cap.read()
 cv.imshow("Frame", frame)
@@ -65,13 +65,15 @@ cv.imshow("Frame", frame)
 # time.sleep(1/10)  # 100 ms – mais lento
     </pre>
   </li>
-  <li>Finalizar com <code>cap.release()</code>.</li>
+  <li> Testar os dois time.sleep <li>
+  <li>Concluir que 1/50 acelera a velocidade do vídeo e 1/10 diminui. De tal forma a parte que dita a velocidade é o comando time.sleep.</li>
 </ol>
 <img src="itemB.png" alt="Leitura de vídeo">
 
 <!-- C) -->
 <h3>C) Captura de imagem da câmera</h3>
 <ol>
+  <li> Abrir o código python3 L1_3_webcam.py <li>
   <li><code>cap = cv.VideoCapture(0)</code></li>
   <li>Ler um frame:<br> <code>_, frame = cap.read()</code></li>
   <li>Salvar ao pressionar <kbd>x</kbd>:<br>
