@@ -67,15 +67,15 @@ cv.imshow("Frame", frame)
     </pre>
   </li>
   <li> Execute o programa</li>
-  <li> Testar os dois time.sleep <li>
-  <li>Concluir que 1/50 acelera a velocidade do vídeo e 1/10 diminui. De tal forma a parte que dita a velocidade é o comando time.sleep.</li>
+  <li> Testar os dois time.sleep </li>
+  <li>Concluir que 1/50 acelera a velocidade do vídeo e 1/10 diminui, pois defini a velocidade que o fraime vai ser lida. De tal forma a parte que dita a velocidade é o comando time.sleep.</li>
 </ol>
 <img src="itemB.png" alt="Leitura de vídeo">
 
 <!-- C) -->
 <h3>C) Captura de imagem da câmera</h3>
 <ol>
-  <li> Abrir o código python3 L1_3_webcam.py /<li>
+  <li> Abrir o código python3 L1_3_webcam.py /</li>
   <li>Adicionar o comando<code>
     elif cv.waitkey(1) = ord('x')
     cv.imwrite('foto1.png',frame)</code></li>
@@ -90,22 +90,19 @@ cv.imshow("Frame", frame)
 <!-- D) -->
 <h3>D) Gravação de vídeo da câmera</h3>
 <ol>
-  <li>Definir FPS = 15 (mínimo recomendado para fluidez).</li>
-  <li>Capturar largura e altura da câmera.</li>
-  <li>Configurar codec XVID e criar
-      <code>VideoWriter("saida.avi", fourcc, 15, (w, h))</code>.</li>
-  <li>No loop: <code>out.write(frame)</code> e
-      <code>cv.imshow("preview", frame)</code>.</li>
-  <li>Liberar recursos no final.</li>
+  <li> Abra o arquivo python3 L1_4_webcap.py </li>
+  <li>Defina o FPS = 15 (Em leitura de artigos o mínimo recomendado para fluidez).</li>
+  <li>Executar o código</li>
+  <li>Pressione a tecla q</li>
+  <li>Valide se o vídeo está com fluidez.</li>
 </ol>
 <img src="ItemD.png" alt="Gravação de vídeo">
 
 <!-- E) -->
-<h3>E) Onde inserir o processamento?</h3>
+<h3>E) Se for necessário alterar a imagem, ou seja realizando alguma operação de procesamento nela, em que
+ponto dos quatro programas estudados isso deve ser realizado?</h3>
 <p>
-Inserir o processamento imediatamente após ler o <em>frame</em> e antes de
-<code>out.write(frame)</code>, garantindo que a versão modificada seja a
-armazenada.
+No quarto programa, pois estamos trabalhando com armazenamento de vídeo.
 </p>
 
 <!-- ----------------------------------------------------------- -->
