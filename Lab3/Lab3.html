@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Relatório de Laboratório</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      background-color: #f9f9f9;
+      color: #333;
+      line-height: 1.6;
+    }
+    h1, h2, h3 {
+      color: #2c3e50;
+    }
+    ul {
+      margin-left: 20px;
+    }
+    img {
+      margin: 20px 0;
+      max-width: 100%;
+      height: auto;
+    }
+    .center {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Relatório de Laboratório: [Título do Experimento]</h1>
+
+  <h2>Autores</h2>
+  <ul>
+    <li><strong>Nome:</strong> Jefferson Paiva de Paula &nbsp; <strong>R.A.:</strong> 11201721192</li>
+    <li><strong>Nome:</strong> Octavio Saviano Neto &nbsp; <strong>R.A.:</strong> 11201921665</li>
+    <li><strong>Nome:</strong> Tiago Cornetta Campos &nbsp; <strong>R.A.:</strong> 11201922123</li>
+  </ul>
+
+  <h2>Datas</h2>
+  <p><strong>Data de realização dos experimentos:</strong> [12/07/2025]</p>
+  <p><strong>Data de publicação do relatório:</strong> [21/07/2025]</p>
+
+  <h2>Introdução</h2>
+  <p>
+    Nesse projeto será apresentado o passo a passo para calibração de uma câmera estéreo, junto a criação e geração de um vídeo 3D.
+    Os tópicos serão divididos em procemimentos experimentais onde traremos os principais passos e parâmetros necessários para calibração e geração do vídeo 3D.
+    Posteriormente será apresentado a análise e conclusões trazendo os principais apontamentos identificados.
+    Por fim, os materiais de referências utilizados na consulta e desenvolvimento da atividade.
+  </p>
+
+  <h2>Procedimentos Experimentais</h2>
+  <p>
+    Para calibração da câmera Estéreo é necessário duas câmeras (esquerda e direita).
+    
+    <h3>Primeiro Passo - Posicionamento</h3>
+    <p>Inicialmente vai ser necessário posicionar ambas as câmeras estando 5 cm de distância entre si.</p>
+    <p>Vale ressaltar que para o posicionamento de nossas câmeras, foi utilizado uma base onde fixamos ambas com fita isolante para elas não movimentarem.</p>
+
+    <h3>Segundo Passo - Tirar Fotos</h3>  
+    <p> Será necessário tirar de 10 a 15 fotos com as câmeras que serão utilizadas posteriormente para a calibragem. </p>
+    <p> Em nosso experimento foi utilizado o código "capture_images_abc.py"  permitindo utilizarmos ambas as câmeras ao mesmo tempo e tirar as fotos.</p>
+    <p> O objeto utilizado para calibragem foi um tabuleiro que consiste numa quantidade de corners 8x6. </p>
+    
+    <h3>Terceiro Passo - Calibragem</h3>
+    <p> Agora será necessário calibrar ambas as câmeras.</p>
+    <p> Em nosso experimento foi utilizado o código "calibrate_abc.py" onde através da leituras das imagens retiradas ele executará a calibragem. </p>
+    <p> A calibragem consiste na identificação dos parâmetros intrísecos (matriz da câmera, coeficientes de distorção), parâmetros extrínsecos (matriz de rotação e vetor de translação) e,
+       por fim, os parâmetros adicionais (matriz de retificação, matriz de projeção) </p>
+    <p>No final todos os parãmetros são salvos no xml que será utilizado posteriormente.</p>
+    <p> Abaixo é mostrado as fotos utilizadas para calibragem.</p>
+
+
+    <h3>Quarto Passo - Criar o vídeo</h3>
+    <p> Foi criado um código para gravar com ambas as câmeras ao mesmo tempo um vídeo. </p>
+    <p>Abaixo é mostrado o código.</p>
+
+    <p>Abaixo é mostrado os vídeos.</p>
+
+
+     <h3>Quinto Passo - Criar o vídeo 3d</h3>
+    </p>Utilizamos o código disponibilizado em aula "movie3d_abc.py" que realizara a leitura dos parâmetos do xml gerado para calibragem das câmeras 
+  e será gerado o vídeo 3D. </p>
+    </p>Abaixo é mostrado o vídeo 3D.</p>
+
+    <p>
+  <h2>Análise e Discussão dos Estudos Realizados</h2>
+  <p>
+    [Apresente os resultados obtidos, discuta os comportamentos observados, gráficos, imagens ou tabelas relevantes.]
+  </p>
+
+  <h3>[Exemplo de Questão/Discussão Adicional]</h3>
+  <p><strong>Pergunta:</strong> [Enuncie a pergunta]</p>
+  <p><strong>Resposta:</strong> [Descreva a resposta e argumente com base nos dados experimentais]</p>
+
+  <h2>Conclusões</h2>
+  <p>
+    [Resuma os aprendizados obtidos, os resultados alcançados e possíveis melhorias para trabalhos futuros.]
+  </p>
+
+  <h2>Referências Consultadas e Indicadas</h2>
+  <ul>
+    <li>[1] Documentação oficial ou bibliografia utilizada</li>
+    <li>[2] Artigos, livros, vídeos, anotações de aula etc.</li>
+  </ul>
+
+</body>
+</html>
