@@ -91,18 +91,10 @@
     <p>Vale ressaltar que para o posicionamento de nossas câmeras, foi utilizado uma base onde fixamos ambas com fita isolante para elas não movimentarem.</p>
 
     <h3>Segundo Passo - Tirar Fotos</h3>  
-    <p> Será necessário tirar de 10 a 15 fotos com as câmeras que serão utilizadas posteriormente para a calibragem. </p>
+    <p> Será necessário tirar de 12 a 20  fotos com as câmeras que serão utilizadas posteriormente para a calibragem. </p>
     <p> Em nosso experimento foi utilizado o código "capture_images_abc.py"  permitindo utilizarmos ambas as câmeras ao mesmo tempo e tirar as fotos.</p>
     <p> O objeto utilizado para calibragem foi um tabuleiro que consiste numa quantidade de corners 8x6. </p>
-    
-    <h3>Terceiro Passo - Calibragem</h3>
-    <p> Agora será necessário calibrar ambas as câmeras.</p>
-    <p> Em nosso experimento foi utilizado o código "calibrate_abc.py" onde através da leituras das imagens retiradas ele executará a calibragem. </p>
-    <p> A calibragem consiste na identificação dos parâmetros intrísecos (matriz da câmera, coeficientes de distorção), parâmetros extrínsecos (matriz de rotação e vetor de translação) e,
-       por fim, os parâmetros adicionais (matriz de retificação, matriz de projeção) </p>
-    <p>No final todos os parãmetros são salvos no xml que será utilizado posteriormente.</p>
-    <p> Abaixo é mostrado as fotos utilizadas para calibragem.</p>
-
+    <p><strong>Abaixo é mostrado as fotos tiradas.</strong></p>
 
 <div class="galeria">
     <!-- Pares de imagens com legendas -->
@@ -129,6 +121,14 @@
 
   </div>
 
+    
+    <h3>Terceiro Passo - Calibragem</h3>
+    <p> Agora será necessário calibrar ambas as câmeras.</p>
+    <p> Em nosso experimento foi utilizado o código "calibrate_abc.py" onde através da leituras das imagens retiradas ele executará a calibragem. </p>
+    <p> A calibragem consiste na identificação dos parâmetros intrísecos (matriz da câmera, coeficientes de distorção), parâmetros extrínsecos (matriz de rotação e vetor de translação) e,
+       por fim, os parâmetros adicionais (matriz de retificação, matriz de projeção) </p>
+    <p>No final todos os parãmetros são salvos no xml que será utilizado posteriormente.</p>
+    <p><strong>Abaixo é mostrado as fotos sendo calibradas.</strong></p>
 
 
 
@@ -136,9 +136,9 @@
 
     <h3>Quarto Passo - Criar o vídeo</h3>
     <p> Foi criado um código para gravar com ambas as câmeras ao mesmo tempo um vídeo. </p>
-    <p>Abaixo é mostrado o código.</p>
-
     <p>Abaixo é mostrado os vídeos.</p>
+
+    
 
 
      <h3>Quinto Passo - Criar o vídeo 3d</h3>
