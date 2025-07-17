@@ -27,18 +27,36 @@
     }
     
     .galeria {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr); /* 2 colunas */
-      gap: 10px;
-      max-width: 600px; /* ajuste conforme o tamanho das imagens */
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      max-width: 800px;
       margin: auto;
+      font-family: Arial, sans-serif;
     }
-    .galeria img {
+
+    .par {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    figure {
+      width: 48%;
+      margin: 0;
+      text-align: center;
+    }
+
+    figure img {
       width: 100%;
       height: auto;
-      display: block;
+      border: 1px solid #ccc;
     }
-  </style>
+
+    figcaption {
+      font-size: 0.9em;
+      margin-top: 5px;
+    }
   </style>
 </head>
 <body>
@@ -86,47 +104,29 @@
     <p> Abaixo é mostrado as fotos utilizadas para calibragem.</p>
 
 
-  h2>Imagens stereoL</h2>
-    <!-- stereoL: img1.png a img18.png -->
-    <img src="stereoL/img1.png" alt="stereoL 1">
-    <img src="stereoL/img2.png" alt="stereoL 2">
-    <img src="stereoL/img3.png" alt="stereoL 3">
-    <img src="stereoL/img4.png" alt="stereoL 4">
-    <img src="stereoL/img5.png" alt="stereoL 5">
-    <img src="stereoL/img6.png" alt="stereoL 6">
-    <img src="stereoL/img7.png" alt="stereoL 7">
-    <img src="stereoL/img8.png" alt="stereoL 8">
-    <img src="stereoL/img9.png" alt="stereoL 9">
-    <img src="stereoL/img10.png" alt="stereoL 10">
-    <img src="stereoL/img11.png" alt="stereoL 11">
-    <img src="stereoL/img12.png" alt="stereoL 12">
-    <img src="stereoL/img13.png" alt="stereoL 13">
-    <img src="stereoL/img14.png" alt="stereoL 14">
-    <img src="stereoL/img15.png" alt="stereoL 15">
-    <img src="stereoL/img16.png" alt="stereoL 16">
-    <img src="stereoL/img17.png" alt="stereoL 17">
-    <img src="stereoL/img18.png" alt="stereoL 18">
+<div class="galeria">
+    <!-- Pares de imagens com legendas -->
+    <!-- Gerado automaticamente -->
 
-    <h2>Imagens stereoR</h2>
-    <!-- stereoR: img1.png a img18.png -->
-    <img src="stereoR/img1.png" alt="stereoR 1">
-    <img src="stereoR/img2.png" alt="stereoR 2">
-    <img src="stereoR/img3.png" alt="stereoR 3">
-    <img src="stereoR/img4.png" alt="stereoR 4">
-    <img src="stereoR/img5.png" alt="stereoR 5">
-    <img src="stereoR/img6.png" alt="stereoR 6">
-    <img src="stereoR/img7.png" alt="stereoR 7">
-    <img src="stereoR/img8.png" alt="stereoR 8">
-    <img src="stereoR/img9.png" alt="stereoR 9">
-    <img src="stereoR/img10.png" alt="stereoR 10">
-    <img src="stereoR/img11.png" alt="stereoR 11">
-    <img src="stereoR/img12.png" alt="stereoR 12">
-    <img src="stereoR/img13.png" alt="stereoR 13">
-    <img src="stereoR/img14.png" alt="stereoR 14">
-    <img src="stereoR/img15.png" alt="stereoR 15">
-    <img src="stereoR/img16.png" alt="stereoR 16">
-    <img src="stereoR/img17.png" alt="stereoR 17">
-    <img src="stereoR/img18.png" alt="stereoR 18">
+    <div class="par"><figure><img src="stereoL/img1.png" alt="Imagem Esquerda 1"><figcaption>Imagem Esquerda</figcaption></figure><figure><img src="stereoR/img1.png" alt="Imagem Direita 1"><figcaption>Imagem Direita</figcaption></figure></div>
+    <div class="par"><figure><img src="stereoL/img2.png" alt="Imagem Esquerda 2"><figcaption>Imagem Esquerda</figcaption></figure><figure><img src="stereoR/img2.png" alt="Imagem Direita 2"><figcaption>Imagem Direita</figcaption></figure></div>
+    <div class="par"><figure><img src="stereoL/img3.png" alt="Imagem Esquerda 3"><figcaption>Imagem Esquerda</figcaption></figure><figure><img src="stereoR/img3.png" alt="Imagem Direita 3"><figcaption>Imagem Direita</figcaption></figure></div>
+    <div class="par"><figure><img src="stereoL/img4.png" alt="Imagem Esquerda 4"><figcaption>Imagem Esquerda</figcaption></figure><figure><img src="stereoR/img4.png" alt="Imagem Direita 4"><figcaption>Imagem Direita</figcaption></figure></div>
+    <div class="par"><figure><img src="stereoL/img5.png" alt="Imagem Esquerda 5"><figcaption>Imagem Esquerda</figcaption></figure><figure><img src="stereoR/img5.png" alt="Imagem Direita 5"><figcaption>Imagem Direita</figcaption></figure></div>
+    <div class="par"><figure><img src="stereoL/img6.png" alt="Imagem Esquerda 6"><figcaption>Imagem Esquerda</figcaption></figure><figure><img src="stereoR/img6.png" alt="Imagem Direita 6"><figcaption>Imagem Direita</figcaption></figure></div>
+    <div class="par"><figure><img src="stereoL/img7.png" alt="Imagem Esquerda 7"><figcaption>Imagem Esquerda</figcaption></figure><figure><img src="stereoR/img7.png" alt="Imagem Direita 7"><figcaption>Imagem Direita</figcaption></figure></div>
+    <div class="par"><figure><img src="stereoL/img8.png" alt="Imagem Esquerda 8"><figcaption>Imagem Esquerda</figcaption></figure><figure><img src="stereoR/img8.png" alt="Imagem Direita 8"><figcaption>Imagem Direita</figcaption></figure></div>
+    <div class="par"><figure><img src="stereoL/img9.png" alt="Imagem Esquerda 9"><figcaption>Imagem Esquerda</figcaption></figure><figure><img src="stereoR/img9.png" alt="Imagem Direita 9"><figcaption>Imagem Direita</figcaption></figure></div>
+    <div class="par"><figure><img src="stereoL/img10.png" alt="Imagem Esquerda 10"><figcaption>Imagem Esquerda</figcaption></figure><figure><img src="stereoR/img10.png" alt="Imagem Direita 10"><figcaption>Imagem Direita</figcaption></figure></div>
+    <div class="par"><figure><img src="stereoL/img11.png" alt="Imagem Esquerda 11"><figcaption>Imagem Esquerda</figcaption></figure><figure><img src="stereoR/img11.png" alt="Imagem Direita 11"><figcaption>Imagem Direita</figcaption></figure></div>
+    <div class="par"><figure><img src="stereoL/img12.png" alt="Imagem Esquerda 12"><figcaption>Imagem Esquerda</figcaption></figure><figure><img src="stereoR/img12.png" alt="Imagem Direita 12"><figcaption>Imagem Direita</figcaption></figure></div>
+    <div class="par"><figure><img src="stereoL/img13.png" alt="Imagem Esquerda 13"><figcaption>Imagem Esquerda</figcaption></figure><figure><img src="stereoR/img13.png" alt="Imagem Direita 13"><figcaption>Imagem Direita</figcaption></figure></div>
+    <div class="par"><figure><img src="stereoL/img14.png" alt="Imagem Esquerda 14"><figcaption>Imagem Esquerda</figcaption></figure><figure><img src="stereoR/img14.png" alt="Imagem Direita 14"><figcaption>Imagem Direita</figcaption></figure></div>
+    <div class="par"><figure><img src="stereoL/img15.png" alt="Imagem Esquerda 15"><figcaption>Imagem Esquerda</figcaption></figure><figure><img src="stereoR/img15.png" alt="Imagem Direita 15"><figcaption>Imagem Direita</figcaption></figure></div>
+    <div class="par"><figure><img src="stereoL/img16.png" alt="Imagem Esquerda 16"><figcaption>Imagem Esquerda</figcaption></figure><figure><img src="stereoR/img16.png" alt="Imagem Direita 16"><figcaption>Imagem Direita</figcaption></figure></div>
+    <div class="par"><figure><img src="stereoL/img17.png" alt="Imagem Esquerda 17"><figcaption>Imagem Esquerda</figcaption></figure><figure><img src="stereoR/img17.png" alt="Imagem Direita 17"><figcaption>Imagem Direita</figcaption></figure></div>
+    <div class="par"><figure><img src="stereoL/img18.png" alt="Imagem Esquerda 18"><figcaption>Imagem Esquerda</figcaption></figure><figure><img src="stereoR/img18.png" alt="Imagem Direita 18"><figcaption>Imagem Direita</figcaption></figure></div>
+
   </div>
 
 
