@@ -200,26 +200,69 @@
   </div>
 
   
-    <p>
+    
   <h2>Análise e Discussão dos Estudos Realizados</h2>
   <p>
-    [Apresente os resultados obtidos, discuta os comportamentos observados, gráficos, imagens ou tabelas relevantes.]
+    Através do desenvolvimento desse laboratório foi possível validar os parâmetros de uma câmera como: parâmetros intrísecos (matriz da câmera, coeficientes de distorção), parâmetros extrínsecos (matriz de rotação e vetor de translação) e,
+    por fim, os parâmetros adicionais (matriz de retificação, matriz de projeção).
   </p>
+  <p>Com a utilização desses parâmetros foi possível a calibragem e utilização de ambas as câmeras para gravação de vídeo.</p>
+  <p>Conseguimos notar que é de extrema importância ao gravar e tirar as fotos necessárias ao longo do laboratório ser utilizado um ambiente iluminado.</p>
+  <p>Ao gerarmos o vídeo 3d tivemos que alterar o parâmetro alpha utilizado que inicialmente era igual a 1, mas o vídeo 3D estava dando um zoom e distorcendo a qualidade. Quando utilizamos alpha =0 tivemos uma melhoria e o zoom sumiu.</p>
 
-  <h3>[Exemplo de Questão/Discussão Adicional]</h3>
-  <p><strong>Pergunta:</strong> [Enuncie a pergunta]</p>
-  <p><strong>Resposta:</strong> [Descreva a resposta e argumente com base nos dados experimentais]</p>
+
 
   <h2>Conclusões</h2>
   <p>
-    [Resuma os aprendizados obtidos, os resultados alcançados e possíveis melhorias para trabalhos futuros.]
+    O laboratório foi um sucesso, somente dando enfase que tivemos que trocar o parâmetro alpha = 0, pois o utilizado no programa original estava gerando um vídeo 3d com zoom e distorcido.
   </p>
+  <p>As imagens e vídeos precisam ser gravados/tirados em ambientes com boa iluminação. </p>
+  <p>A calibragem das câmeras é de suma importância para melhorar a qualidade de vídeo e imagem. </p>
 
-  <h2>Referências Consultadas e Indicadas</h2>
-  <ul>
-    <li>[1] Documentação oficial ou bibliografia utilizada</li>
-    <li>[2] Artigos, livros, vídeos, anotações de aula etc.</li>
-  </ul>
+ <h2>Referências:</h2>
+<ul>
+  <li>
+    [1] Making A Low-Cost Stereo Camera Using OpenCV: 
+    <a href="https://learnopencv.com/making-a-low-cost-stereo-camera-using-opencv/" target="_blank" rel="noopener noreferrer">
+      https://learnopencv.com/making-a-low-cost-stereo-camera-using-opencv/
+    </a><br>
+    Código: 
+    <a href="https://github.com/spmallick/learnopencv/tree/master/stereo-camera" target="_blank" rel="noopener noreferrer">
+      https://github.com/spmallick/learnopencv/tree/master/stereo-camera
+    </a>
+  </li>
+  <li>
+    [2] Introduction to Epipolar Geometry and Stereo Vision: 
+    <a href="https://learnopencv.com/introduction-to-epipolar-geometry-and-stereo-vision/" target="_blank" rel="noopener noreferrer">
+      https://learnopencv.com/introduction-to-epipolar-geometry-and-stereo-vision/
+    </a><br>
+    Código: 
+    <a href="https://github.com/spmallick/learnopencv/tree/master/EpipolarGeometryAndStereoVision" target="_blank" rel="noopener noreferrer">
+      https://github.com/spmallick/learnopencv/tree/master/EpipolarGeometryAndStereoVision
+    </a>
+  </li>
+  <li>
+    [3] Understanding Lens Distortion: 
+    <a href="https://learnopencv.com/understanding-lens-distortion/" target="_blank" rel="noopener noreferrer">
+      https://learnopencv.com/understanding-lens-distortion/
+    </a><br>
+    Código: 
+    <a href="https://github.com/spmallick/learnopencv/tree/master/UnderstandingLensDistortion" target="_blank" rel="noopener noreferrer">
+      https://github.com/spmallick/learnopencv/tree/master/UnderstandingLensDistortion
+    </a>
+  </li>
+  <li>
+    [4] C. Loop and Z. Zhang. Computing Rectifying Homographies for Stereo Vision.
+    IEEE Conf. Computer Vision and Pattern Recognition, 1999.
+  </li>
+  <li>
+    [5] Geometry of Image Formation: 
+    <a href="https://learnopencv.com/geometry-of-image-formation/" target="_blank" rel="noopener noreferrer">
+      https://learnopencv.com/geometry-of-image-formation/
+    </a>
+  </li>
+</ul>
+
 
 </body>
 </html>
