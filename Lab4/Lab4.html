@@ -1,1 +1,142 @@
 
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Relatório de Laboratório</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      background-color: #f9f9f9;
+      color: #333;
+      line-height: 1.6;
+    }
+    h1, h2, h3 {
+      color: #2c3e50;
+    }
+    ul {
+      margin-left: 20px;
+    }
+    img {
+      margin: 20px 0;
+      max-width: 100%;
+      height: auto;
+    }
+    .center {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Relatório de Laboratório: Depth Map
+Mapa de Profundidade</h1>
+
+  <h2>Autores</h2>
+  <ul>
+    <li><strong>Nome:</strong> Jefferson Paiva de Paula &nbsp; <strong>R.A.:</strong> 11201721192</li>
+    <li><strong>Nome:</strong> Octavio Saviano Neto &nbsp; <strong>R.A.:</strong> 11201921665</li>
+    <li><strong>Nome:</strong> Tiago Cornetta Campos &nbsp; <strong>R.A.:</strong> 11201922123</li>
+  </ul>
+
+  <h2>Datas</h2>
+  <p><strong>Data de realização dos experimentos:</strong> [28/07/2025]</p>
+  <p><strong>Data de publicação do relatório:</strong> [XX/08/2025]</p>
+
+  <h2>Introdução</h2>
+  <p>
+        A Visão Computacional é uma área da computação que busca fazer com que máquinas entendam imagens e vídeos. 
+        Um dos primeiros passos nesse processo é encontrar pontos importantes em uma imagem, chamados de <strong>features</strong> (características).
+    </p>
+
+    <p>
+        Essas características podem ser cantos, bordas ou padrões que ajudam a reconhecer objetos ou comparar imagens diferentes. 
+        Para isso, existem métodos como os detectores de <strong>Harris</strong> e <strong>Shi-Tomasi</strong>, que localizam cantos em imagens.
+    </p>
+
+    <p>
+        Também estudamos o <strong>SIFT (Scale-Invariant Feature Transform)</strong>, que é um método mais avançado para encontrar pontos que 
+        continuam visíveis mesmo com mudanças de escala, rotação ou iluminação. Com isso, é possível comparar imagens e encontrar objetos em posições diferentes.
+    </p>
+
+    <p>
+        No experimento prático, usamos o SIFT para fazer <strong>emparelhamento de características</strong> entre duas imagens e aplicar uma 
+        <strong>homografia</strong> para encontrar a posição de um objeto. Também fizemos esse processo usando uma câmera estéreo.
+    </p>
+
+    <p>
+        Por fim, estudamos a <strong>Transformada de Hough</strong>, que serve para encontrar formas como linhas e círculos em imagens. 
+        Esse método também foi aplicado em imagens e vídeos, usando a mesma câmera estéreo.
+    </p>
+
+    <p>
+        Este relatório apresenta um resumo da teoria estudada e os experimentos realizados em grupo, com o objetivo de entender melhor essas técnicas da Visão Computacional.
+    </p>
+
+  
+  <h2>Procedimentos Experimentais</h2>
+  <p>
+    [Explique detalhadamente como o experimento foi realizado, quais ferramentas foram utilizadas e o passo a passo.]
+  </p>
+
+  <h2>Análise e Discussão dos Estudos Realizados</h2>
+  <p>
+    [Apresente os resultados obtidos, discuta os comportamentos observados, gráficos, imagens ou tabelas relevantes.]
+  </p>
+
+  
+
+  <h2>Conclusões</h2>
+  <p>
+    [Resuma os aprendizados obtidos, os resultados alcançados e possíveis melhorias para trabalhos futuros.]
+  </p>
+
+  <h2>Referências Consultadas e Indicadas</h2>
+<ul>
+        <li>
+            OpenCV. <strong>Feature Detection and Description - Sumário</strong>. Disponível em:
+            <a href="https://docs.opencv.org/4.x/db/d27/tutorial_py_table_of_contents_feature2d.html" target="_blank">
+                https://docs.opencv.org/4.x/db/d27/tutorial_py_table_of_contents_feature2d.html
+            </a>
+        </li>
+        <li>
+            OpenCV. <strong>Entendendo sobre Features</strong>. Disponível em:
+            <a href="https://docs.opencv.org/4.x/df/d54/tutorial_py_features_meaning.html" target="_blank">
+                https://docs.opencv.org/4.x/df/d54/tutorial_py_features_meaning.html
+            </a>
+        </li>
+        <li>
+            OpenCV. <strong>Detector de Harris</strong>. Disponível em:
+            <a href="https://docs.opencv.org/4.x/dc/d0d/tutorial_py_features_harris.html" target="_blank">
+                https://docs.opencv.org/4.x/dc/d0d/tutorial_py_features_harris.html
+            </a>
+        </li>
+        <li>
+            OpenCV. <strong>Detector de Shi-Tomasi</strong>. Disponível em:
+            <a href="https://docs.opencv.org/4.x/d4/d8c/tutorial_py_shi_tomasi.html" target="_blank">
+                https://docs.opencv.org/4.x/d4/d8c/tutorial_py_shi_tomasi.html
+            </a>
+        </li>
+        <li>
+            OpenCV. <strong>Introdução ao SIFT (Scale-Invariant Feature Transform)</strong>. Disponível em:
+            <a href="https://docs.opencv.org/4.x/da/df5/tutorial_py_sift_intro.html" target="_blank">
+                https://docs.opencv.org/4.x/da/df5/tutorial_py_sift_intro.html
+            </a>
+        </li>
+        <li>
+            OpenCV. <strong>Feature Matching + Homography to find Objects</strong>. Disponível em:
+            <a href="https://docs.opencv.org/4.x/d1/de0/tutorial_py_feature_homography.html" target="_blank">
+                https://docs.opencv.org/4.x/d1/de0/tutorial_py_feature_homography.html
+            </a>
+        </li>
+        <li>
+            LearnOpenCV. <strong>Hough Transform with OpenCV (C++/Python)</strong>. Disponível em:
+            <a href="https://learnopencv.com/hough-transform-with-opencv-c-python/" target="_blank">
+                https://learnopencv.com/hough-transform-with-opencv-c-python/
+            </a>
+        </li>
+    </ul>
+
+</body>
+</html>
