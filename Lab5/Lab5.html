@@ -61,7 +61,7 @@ Features</h1>
   Já o SIFT (Scale-Invariant Feature Transform) vai além, encontrando pontos de interesse que resistem a mudanças de escala, rotação e iluminação.</p>
 
 <p>Além disso, técnicas como Feature Matching com Homografia permitem encontrar o mesmo objeto em imagens diferentes, mesmo que ele esteja em posições ou ângulos distintos. 
-  Também estudamos a Transformada de Hough, que é usada para detectar formas simples como linhas e círculos em imagens.</p>
+  Também estudamos a Hough Transform, que é usada para detectar formas simples como linhas e círculos em imagens.</p>
 <p>
 Neste trabalho, realizamos experimentos práticos com essas técnicas usando a biblioteca OpenCV, tanto com imagens gravadas quanto com vídeo em tempo real, para entender como essas ferramentas funcionam na prática.
   </p>
@@ -282,32 +282,32 @@ Durante os experimentos com <strong>Feature Matching + Homography</strong>, obse
 </p>
 
 <p>
-Ao aplicar a <strong>Transformada de Hough</strong> para detecção de círculos, o algoritmo conseguiu identificar formas circulares de maneira confiável, desde que o contraste entre o círculo e o fundo fosse adequado. No entanto, foi perceptível que a sensibilidade do método é afetada por ruídos na imagem e pela variação do tamanho do círculo, exigindo ajustes manuais dos parâmetros (<code>param1</code>, <code>param2</code> e raio mínimo/máximo).
+Ao aplicar a <strong>Hough Transform</strong> para detecção de círculos, o algoritmo conseguiu identificar formas circulares de maneira confiável, desde que o contraste entre o círculo e o fundo fosse adequado. No entanto, foi perceptível que a sensibilidade do método é afetada por ruídos na imagem e pela variação do tamanho do círculo, exigindo ajustes manuais dos parâmetros (<code>param1</code>, <code>param2</code> e raio mínimo/máximo).
 </p>
 
 <p>
 A análise conjunta dos dois métodos demonstra que:
 <ul>
   <li>O <strong>Feature Matching</strong> é mais indicado para identificar padrões complexos e objetos específicos.</li>
-  <li>A <strong>Transformada de Hough</strong> é ideal para detectar formas geométricas simples, como círculos, independentemente do padrão interno da imagem.</li>
+  <li>A <strong>Hough Transform</strong> é ideal para detectar formas geométricas simples, como círculos, independentemente do padrão interno da imagem.</li>
 </ul>
 </p>
 
 <p>
-Outro ponto observado foi o desempenho em tempo real: a detecção via SIFT apresentou maior consumo de processamento, enquanto a Transformada de Hough se mostrou mais rápida, mas menos robusta em cenários com ruído elevado.
+Outro ponto observado foi o desempenho em tempo real: a detecção via SIFT apresentou maior consumo de processamento, enquanto a Hough Transform se mostrou mais rápida, mas menos robusta em cenários com ruído elevado.
 </p>
 
 
   
 <h2>Conclusões</h2>
 <p>
-A partir dos experimentos realizados, concluímos que a integração de diferentes técnicas de detecção e descrição de características amplia as possibilidades de reconhecimento de objetos em aplicações reais. O <strong>SIFT com Homografia</strong> demonstrou alta precisão para objetos complexos, enquanto a <strong>Transformada de Hough</strong> se destacou na detecção de formas simples e bem definidas.
+A partir dos experimentos realizados, concluímos que a integração de diferentes técnicas de detecção e descrição de características amplia as possibilidades de reconhecimento de objetos em aplicações reais. O <strong>SIFT com Homografia</strong> demonstrou alta precisão para objetos complexos, enquanto a <strong>Hough Transform</strong> se destacou na detecção de formas simples e bem definidas.
 </p>
 
 <p>
 Como melhoria futura, recomenda-se:
 <ul>
-  <li>Aplicar técnicas de pré-processamento para reduzir ruídos e melhorar a robustez da Transformada de Hough.</li>
+  <li>Aplicar técnicas de pré-processamento para reduzir ruídos e melhorar a robustez da Hough Transform.</li>
   <li>Testar detectores alternativos, como ORB ou AKAZE, que apresentam bom desempenho e menor custo computacional.</li>
   <li>Integrar filtros adicionais para refinar a correspondência de features e evitar falsos positivos.</li>
   <li>Explorar calibração automática de parâmetros para adaptação em diferentes condições de iluminação e distância.</li>
