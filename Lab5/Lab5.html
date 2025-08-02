@@ -191,10 +191,98 @@ def detectar_objeto_video():
 <h3>Na imagem abaixo é apresentado o objeto detectado.</h3>
 <img src="deteccao_1.png" alt="Minha foto" width="300" height="200">
 
-        
+<h2>Etapa 2 - Desenvolver o código para o Hough Transform. </h2>   
+<p>Através do código abaixo usamos o Hugh Transform para localizar circulos na imagem.</p>
+<body>
+  <pre>
+    def detectar_circulo_especifico_video():
+    # === Passo 1: Ler imagem de referência e detectar círculo ===
+    modelo_path = input("Digite o nome da imagem com o círculo de referência: ")
+    modelo = cv2.imread(f"data/objeto/{modelo_path}")
+    modelo_gray = cv2.cvtColor(modelo, cv2.COLOR_BGR2GRAY)
+    modelo_blur = cv2.medianBlur(modelo_gray, 5)
+
+    modelo_circles = cv2.HoughCircles(modelo_blur, cv2.HOUGH_GRADIENT, 1,
+                                       modelo.shape[0] / 64,
+                                       param1=200, param2=20,
+                                       minRadius=5, maxRadius=30)
+
+    if modelo_circles is None:
+        print("❌ Nenhum círculo encontrado na imagem de referência.")
+        return
+
+    modelo_circles = np.uint16(np.around(modelo_circles))
+    ref_circle = modelo_circles[0, 0]  # Usa o primeiro círculo detectado
+    ref_x, ref_y, ref_r = ref_circle
+    print(f"🔍 Círculo de referência detectado: centro=({ref_x},{ref_y}), raio={ref_r}")
+
+    # === Passo 2: Ler parâmetros e abrir câmeras ===
+    cv_file = cv2.FileStorage("data/params_py.xml", cv2.FILE_STORAGE_READ)
+    Left_Stereo_Map_x = cv_file.getNode("Left_Stereo_Map_x").mat()
+    Left_Stereo_Map_y = cv_file.getNode("Left_Stereo_Map_y").mat()
+    Right_Stereo_Map_x = cv_file.getNode("Right_Stereo_Map_x").mat()
+    Right_Stereo_Map_y = cv_file.getNode("Right_Stereo_Map_y").mat()
+    cv_file.release()
+
+    indices = detectar_cameras()
+    if len(indices) < 2:
+        print("❌ Menos de duas câmeras disponíveis.")
+        return
+
+    CamL = cv2.VideoCapture(indices[0])
+    CamR = cv2.VideoCapture(indices[1])
+    count = 0
+
+    print("🎥 Iniciando detecção do círculo específico. Pressione ESC para sair.")
+    cv2.namedWindow("Câmeras Esquerda (esq) e Direita (dir)", cv2.WINDOW_NORMAL)
+
+    while True:
+        retL, frameL = CamL.read()
+        retR, frameR = CamR.read()
+
+        if not retL or not retR:
+            print("Falha ao capturar frame da câmera")
+            break
+
+        # Remapeamento para correção
+        Left_nice = cv2.remap(frameL, Left_Stereo_Map_x, Left_Stereo_Map_y, cv2.INTER_LANCZOS4)
+        Right_nice = cv2.remap(frameR, Right_Stereo_Map_x, Right_Stereo_Map_y, cv2.INTER_LANCZOS4)
+
+        matchL, Left_nice = detectar_circulo(cv2, Left_nice, ref_r)
+        matchR, Right_nice = detectar_circulo(cv2, Right_nice, ref_r)
+
+        # Combina as imagens lado a lado para exibir
+        combined = np.hstack((Left_nice, Right_nice))
+        cv2.imshow("Câmeras Esquerda (esq) e Direita (dir)", combined)
+
+        key = cv2.waitKey(1) & 0xFF
+        if matchL or matchR or key == 27:
+            cv2.imwrite(f"data/objeto/circulo_encontrado_left_{count}.png", Left_nice)
+            cv2.imwrite(f"data/objeto/circulo_encontrado_right_{count}.png", Right_nice)
+            break
+
+        if key == 27:  # ESC
+            print("⛔ Encerrado pelo usuário.")
+            break
+
+    CamL.release()
+    CamR.release()
+    cv2.destroyAllWindows()
+  </pre>
+</body>
+<h3>Na imagem abaixo é apresentado os circulos detectados.</h3>
+    <div class="container">
+        <div class="imagem">
+            <img src="circulo_encontrado_left_0.png" alt="Imagem da Câmera Esquerda">
+            <div class="legenda">Câmera Esquerda</div>
+        </div>
+        <div class="imagem">
+            <img src="circulo_encontrado_right_0.png" alt="Imagem da Câmera Direita">
+            <div class="legenda">Câmera Direita</div>
+        </div>
+    </div>
 
 
-  
   Etapa 2 -
   Etapa 3 -
   Etapa 4 -
