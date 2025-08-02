@@ -276,18 +276,48 @@ def detectar_objeto_video():
 <img src="cir.png" alt="Imagem da referência do Circulo">
 
 
-  <h2>Análise e Discussão dos Estudos Realizados</h2>
-  <p>
+<h2>Análise e discussão dos estudos realizados</h2>
+<p>
+Durante os experimentos com <strong>Feature Matching + Homography</strong>, observamos que o método foi eficaz para localizar o objeto de referência em diferentes posições e escalas. A utilização do SIFT garantiu robustez contra variações de iluminação e rotações moderadas, e o uso do teste de razão de Lowe filtrou correspondências falsas, reduzindo ruído no resultado final.
+</p>
 
-    
-  </p>
+<p>
+Ao aplicar a <strong>Transformada de Hough</strong> para detecção de círculos, o algoritmo conseguiu identificar formas circulares de maneira confiável, desde que o contraste entre o círculo e o fundo fosse adequado. No entanto, foi perceptível que a sensibilidade do método é afetada por ruídos na imagem e pela variação do tamanho do círculo, exigindo ajustes manuais dos parâmetros (<code>param1</code>, <code>param2</code> e raio mínimo/máximo).
+</p>
+
+<p>
+A análise conjunta dos dois métodos demonstra que:
+<ul>
+  <li>O <strong>Feature Matching</strong> é mais indicado para identificar padrões complexos e objetos específicos.</li>
+  <li>A <strong>Transformada de Hough</strong> é ideal para detectar formas geométricas simples, como círculos, independentemente do padrão interno da imagem.</li>
+</ul>
+</p>
+
+<p>
+Outro ponto observado foi o desempenho em tempo real: a detecção via SIFT apresentou maior consumo de processamento, enquanto a Transformada de Hough se mostrou mais rápida, mas menos robusta em cenários com ruído elevado.
+</p>
+
 
   
+<h2>Conclusões</h2>
+<p>
+A partir dos experimentos realizados, concluímos que a integração de diferentes técnicas de detecção e descrição de características amplia as possibilidades de reconhecimento de objetos em aplicações reais. O <strong>SIFT com Homografia</strong> demonstrou alta precisão para objetos complexos, enquanto a <strong>Transformada de Hough</strong> se destacou na detecção de formas simples e bem definidas.
+</p>
 
-  <h2>Conclusões</h2>
-  <p>
-    [Resuma os aprendizados obtidos, os resultados alcançados e possíveis melhorias para trabalhos futuros.]
-  </p>
+<p>
+Como melhoria futura, recomenda-se:
+<ul>
+  <li>Aplicar técnicas de pré-processamento para reduzir ruídos e melhorar a robustez da Transformada de Hough.</li>
+  <li>Testar detectores alternativos, como ORB ou AKAZE, que apresentam bom desempenho e menor custo computacional.</li>
+  <li>Integrar filtros adicionais para refinar a correspondência de features e evitar falsos positivos.</li>
+  <li>Explorar calibração automática de parâmetros para adaptação em diferentes condições de iluminação e distância.</li>
+</ul>
+</p>
+
+<p>
+Esses estudos reforçam a importância de compreender o comportamento dos algoritmos de Visão Computacional em cenários práticos, abrindo caminho para sua aplicação em áreas como robótica, realidade aumentada e sistemas de inspeção industrial.
+</p>
+
 
   <h2>Referências Consultadas e Indicadas</h2>
  <ul>
