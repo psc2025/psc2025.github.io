@@ -59,9 +59,96 @@ Neste trabalho, realizamos experimentos práticos com essas técnicas usando a b
   </p>
 
   <h2>Procedimentos Experimentais</h2>
-  <p>
-    [Explique detalhadamente como o experimento foi realizado, quais ferramentas foram utilizadas e o passo a passo.]
-  </p>
+
+  <h3>Etapa 1 -  Desenvolver o código para o “Feature Matching + Homography to find Objects"</h3>
+  <p>Através do código abaixo foi realizado o reconhecimento do objeto no vídeo utilizando a metodologia. </p>
+
+<body>
+  <h3>Detecção de Objeto em Tempo Real</h3>
+  <video id="video" autoplay></video>
+  <canvas id="canvas"></canvas>
+  <input type="file" id="uploadRef" accept="image/*" />
+  <p id="status">Carregando OpenCV...</p>
+
+  <script>
+    let video = document.getElementById('video');
+    let canvas = document.getElementById('canvas');
+    let ctx = canvas.getContext('2d');
+    let refImgMat = null;
+
+    // Aguardar OpenCV
+    cv['onRuntimeInitialized'] = () => {
+      document.getElementById('status').innerText = "OpenCV carregado!";
+      startCamera();
+    };
+
+    function startCamera() {
+      navigator.mediaDevices.getUserMedia({ video: true })
+      .then(stream => { video.srcObject = stream; })
+      .catch(err => console.error("Erro câmera: ", err));
+    }
+
+    // Carregar imagem de referência
+    document.getElementById('uploadRef').addEventListener('change', e => {
+      let file = e.target.files[0];
+      let img = new Image();
+      img.onload = () => {
+        let mat = cv.imread(img);
+        cv.cvtColor(mat, mat, cv.COLOR_RGBA2GRAY);
+        refImgMat = mat;
+        document.getElementById('status').innerText = "Imagem de referência carregada!";
+      };
+      img.src = URL.createObjectURL(file);
+    });
+
+    function processFrame() {
+      if (!refImgMat) {
+        requestAnimationFrame(processFrame);
+        return;
+      }
+
+      ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+      let frame = cv.imread(canvas);
+      cv.cvtColor(frame, frame, cv.COLOR_RGBA2GRAY);
+
+      // ORB Detector
+      let orb = new cv.ORB();
+      let kp1 = new cv.KeyPointVector();
+      let des1 = new cv.Mat();
+      orb.detectAndCompute(refImgMat, new cv.Mat(), kp1, des1);
+
+      let kp2 = new cv.KeyPointVector();
+      let des2 = new cv.Mat();
+      orb.detectAndCompute(frame, new cv.Mat(), kp2, des2);
+
+      if (des1.rows > 0 && des2.rows > 0) {
+        let bf = new cv.BFMatcher(cv.NORM_HAMMING, true);
+        let matches = new cv.DMatchVector();
+        bf.match(des1, des2, matches);
+
+        if (matches.size() > 10) {
+          document.getElementById('status').innerText = "Objeto detectado!";
+        } else {
+          document.getElementById('status').innerText = "Buscando...";
+        }
+      }
+
+      frame.delete();
+      des1.delete(); des2.delete();
+      kp1.delete(); kp2.delete();
+      requestAnimationFrame(processFrame);
+    }
+
+    requestAnimationFrame(processFrame);
+  </script>
+</body>
+
+
+
+  
+  Etapa 2 -
+  Etapa 3 -
+  Etapa 4 -
 
   <h2>Análise e Discussão dos Estudos Realizados</h2>
   <p>
