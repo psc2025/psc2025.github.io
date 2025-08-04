@@ -26,6 +26,38 @@
     .center {
       text-align: center;
     }
+    
+    .galeria {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      max-width: 800px;
+      margin: auto;
+      font-family: Arial, sans-serif;
+    }
+
+    .par {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    figure {
+      width: 30%;
+      margin: 0;
+      text-align: center;
+    }
+
+    figure img {
+      width: 100%;
+      height: auto;
+      border: 1px solid #ccc;
+    }
+
+    figcaption {
+      font-size: 0.9em;
+      margin-top: 5px;
+    }
   </style>
 </head>
 <body>
@@ -76,9 +108,68 @@ Mapa de Profundidade</h1>
 
   
   <h2>Procedimentos Experimentais</h2>
-  <p>
-    [Explique detalhadamente como o experimento foi realizado, quais ferramentas foram utilizadas e o passo a passo.]
-  </p>
+  
+    <p>
+    Para calibração da câmera Estéreo é necessário duas câmeras (esquerda e direita).
+    </p>
+    <h3>Primeiro Passo - Calibração da câmera</h3>
+    <p>Inicialmente vai ser necessário posicionar ambas as câmeras estando 5 cm de distância entre si e tirar 18 fotos de cada camêra, conforme foi feito no laboratório 3</p>
+    <p> O objeto utilizado para calibragem foi um tabuleiro que consiste numa quantidade de corners 8x6. </p>
+
+    <p> A calibragem consiste na identificação dos parâmetros intrísecos (matriz da câmera, coeficientes de distorção), parâmetros extrínsecos (matriz de rotação e vetor de translação) e,
+       por fim, os parâmetros adicionais (matriz de retificação, matriz de projeção) </p>
+    <p>No final todos os parãmetros são salvos no arquivo 'params_py.xml' para serem utilizados posteriormente.</p>
+
+    <p><strong>Abaixo é mostrado as fotos tiradas e calibradas.</strong></p>
+
+    <div class="galeria">
+      <!-- Pares de imagens com legendas -->
+      <!-- Gerado automaticamente -->
+
+      <div class="par"><figure><img src="stereoL/img1.png" alt="Imagem Esquerda 1"><figcaption>Imagem Esquerda</figcaption></figure><figure><img src="stereoR/img1.png" alt="Imagem Direita 1"><figcaption>Imagem Direita</figcaption></figure></div>
+      <div class="par"><figure><img src="stereoL/img2.png" alt="Imagem Esquerda 2"><figcaption>Imagem Esquerda</figcaption></figure><figure><img src="stereoR/img2.png" alt="Imagem Direita 2"><figcaption>Imagem Direita</figcaption></figure></div>
+      <div class="par"><figure><img src="stereoL/img3.png" alt="Imagem Esquerda 3"><figcaption>Imagem Esquerda</figcaption></figure><figure><img src="stereoR/img3.png" alt="Imagem Direita 3"><figcaption>Imagem Direita</figcaption></figure></div>
+      <div class="par"><figure><img src="stereoL/img4.png" alt="Imagem Esquerda 4"><figcaption>Imagem Esquerda</figcaption></figure><figure><img src="stereoR/img4.png" alt="Imagem Direita 4"><figcaption>Imagem Direita</figcaption></figure></div>
+      <div class="par"><figure><img src="stereoL/img5.png" alt="Imagem Esquerda 5"><figcaption>Imagem Esquerda</figcaption></figure><figure><img src="stereoR/img5.png" alt="Imagem Direita 5"><figcaption>Imagem Direita</figcaption></figure></div>
+      <div class="par"><figure><img src="stereoL/img6.png" alt="Imagem Esquerda 6"><figcaption>Imagem Esquerda</figcaption></figure><figure><img src="stereoR/img6.png" alt="Imagem Direita 6"><figcaption>Imagem Direita</figcaption></figure></div>
+      <div class="par"><figure><img src="stereoL/img7.png" alt="Imagem Esquerda 7"><figcaption>Imagem Esquerda</figcaption></figure><figure><img src="stereoR/img7.png" alt="Imagem Direita 7"><figcaption>Imagem Direita</figcaption></figure></div>
+      <div class="par"><figure><img src="stereoL/img8.png" alt="Imagem Esquerda 8"><figcaption>Imagem Esquerda</figcaption></figure><figure><img src="stereoR/img8.png" alt="Imagem Direita 8"><figcaption>Imagem Direita</figcaption></figure></div>
+      <div class="par"><figure><img src="stereoL/img9.png" alt="Imagem Esquerda 9"><figcaption>Imagem Esquerda</figcaption></figure><figure><img src="stereoR/img9.png" alt="Imagem Direita 9"><figcaption>Imagem Direita</figcaption></figure></div>
+      <div class="par"><figure><img src="stereoL/img10.png" alt="Imagem Esquerda 10"><figcaption>Imagem Esquerda</figcaption></figure><figure><img src="stereoR/img10.png" alt="Imagem Direita 10"><figcaption>Imagem Direita</figcaption></figure></div>
+      <div class="par"><figure><img src="stereoL/img11.png" alt="Imagem Esquerda 11"><figcaption>Imagem Esquerda</figcaption></figure><figure><img src="stereoR/img11.png" alt="Imagem Direita 11"><figcaption>Imagem Direita</figcaption></figure></div>
+      <div class="par"><figure><img src="stereoL/img12.png" alt="Imagem Esquerda 12"><figcaption>Imagem Esquerda</figcaption></figure><figure><img src="stereoR/img12.png" alt="Imagem Direita 12"><figcaption>Imagem Direita</figcaption></figure></div>
+      <div class="par"><figure><img src="stereoL/img13.png" alt="Imagem Esquerda 13"><figcaption>Imagem Esquerda</figcaption></figure><figure><img src="stereoR/img13.png" alt="Imagem Direita 13"><figcaption>Imagem Direita</figcaption></figure></div>
+      <div class="par"><figure><img src="stereoL/img14.png" alt="Imagem Esquerda 14"><figcaption>Imagem Esquerda</figcaption></figure><figure><img src="stereoR/img14.png" alt="Imagem Direita 14"><figcaption>Imagem Direita</figcaption></figure></div>
+      <div class="par"><figure><img src="stereoL/img15.png" alt="Imagem Esquerda 15"><figcaption>Imagem Esquerda</figcaption></figure><figure><img src="stereoR/img15.png" alt="Imagem Direita 15"><figcaption>Imagem Direita</figcaption></figure></div>
+      <div class="par"><figure><img src="stereoL/img16.png" alt="Imagem Esquerda 16"><figcaption>Imagem Esquerda</figcaption></figure><figure><img src="stereoR/img16.png" alt="Imagem Direita 16"><figcaption>Imagem Direita</figcaption></figure></div>
+      <div class="par"><figure><img src="stereoL/img17.png" alt="Imagem Esquerda 17"><figcaption>Imagem Esquerda</figcaption></figure><figure><img src="stereoR/img17.png" alt="Imagem Direita 17"><figcaption>Imagem Direita</figcaption></figure></div>
+      <div class="par"><figure><img src="stereoL/img18.png" alt="Imagem Esquerda 18"><figcaption>Imagem Esquerda</figcaption></figure><figure><img src="stereoR/img18.png" alt="Imagem Direita 18"><figcaption>Imagem Direita</figcaption></figure></div>
+
+    </div>
+
+    <h3>Segundo Passo - Block Matching</h3>
+    <p> Utilizando a sessão "Block Matching For Dense Stereo Correspondence” da referência [8]</p>
+    <p> Em nosso experimento foi utilizado o código “disparity_params_gui.py” onde o mesmo usará os perâmtros usados na calibragem. </p>
+    <p> Após o processamento, o mesmo salvará os parâmetros nesse arquivo "depth_estmation_params_py.xml”. </p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   <h2>Análise e Discussão dos Estudos Realizados</h2>
   <p>
@@ -93,7 +184,7 @@ Mapa de Profundidade</h1>
   </p>
 
   <h2>Referências Consultadas e Indicadas</h2>
-<ul>
+<ol>
         <li>
             OpenCV. <strong>Feature Detection and Description - Sumário</strong>. Disponível em:
             <a href="https://docs.opencv.org/4.x/db/d27/tutorial_py_table_of_contents_feature2d.html" target="_blank">
@@ -136,7 +227,13 @@ Mapa de Profundidade</h1>
                 https://learnopencv.com/hough-transform-with-opencv-c-python/
             </a>
         </li>
-    </ul>
+        <li>
+            LearnOpenCV. <strong>Block Matching For Dense Stereo Correspondence</strong>. Disponível em:
+            <a href="https://learnopencv.com/depth-perception-using-stereo-camera-python-c/" target="_blank">
+                https://learnopencv.com/depth-perception-using-stereo-camera-python-c/
+            </a>
+        </li>
+    </ol>
 
 </body>
 </html>
