@@ -153,8 +153,16 @@ Mapa de Profundidade</h1>
     <p> Após o processamento, o mesmo salvará os parâmetros nesse arquivo "depth_estmation_params_py.xml”. </p>
 
 
+    <h3>Terceiro Passo - From disparity map to depth map</h3>
+    <p> Obter o mapa de profundidade pelo processo prático de medidad de distância seguindo as orientações indicadas na seção “From disparity map to depth map” </p>
+    <p> Em nosso experimento foi utilizado o código “disparity2depth_calib.py” onde o mesmo usará os perâmtros usados na calibragem para leitura do arquivo “params_py.xml". </p>
+    <p> Após o processamento, o mesmo salvará os parâmetros nesse arquivo "depth_estmation_params_py.xml”. </p>
 
+    <img src="disp_screenshot_30.07.2025.png" alt="Imagem gerada">
 
+    <h3>Quarto Passo - Obstacle avoidance system</h3>
+    <p> Realizar medidas de distância seguindo as orientações indicadas na seção “Obstacle avoidance system”</p>
+    <p> Este programa deverá ser adaptado para leitura do arquivo “params_py.xml”, e do arquivo “depth_estmation_params_py.xml”</p>
 
 
 
@@ -173,14 +181,28 @@ Mapa de Profundidade</h1>
 
   <h2>Análise e Discussão dos Estudos Realizados</h2>
   <p>
-    [Apresente os resultados obtidos, discuta os comportamentos observados, gráficos, imagens ou tabelas relevantes.]
+    Este projeto do Laboratório 4 da disciplina ESZA019 – Visão Computacional teve como principal objetivo estudar e aplicar os conceitos de 
+    mapa de disparidade, retificação de imagens e mapa de profundidade utilizando uma câmera estéreo construída em aula. O trabalho foi 
+    dividido em duas partes. A primeira consistiu em um estudo teórico sobre a geometria epipolar, a formação de mapas de profundidade a 
+    partir de imagens estéreo e o uso da biblioteca OpenCV para gerar esses mapas. Já a segunda parte foi prática e envolveu a calibração da 
+    câmera estéreo, a geração do mapa de disparidade usando o algoritmo Block Matching e, a partir disso, a obtenção do mapa de profundidade.
+
+    Durante a prática, foi necessário seguir um processo cuidadoso de calibração estéreo para garantir que os parâmetros das câmeras 
+    estivessem corretos. A calibração foi feita utilizando imagens de um padrão capturado previamente. Em seguida, com os parâmetros calibrados salvos, 
+    o mapa de disparidade foi gerado e ajustado usando uma interface gráfica para encontrar os melhores parâmetros. A partir desse mapa, foi possível 
+    calcular a profundidade real dos objetos na cena.
   </p>
 
   
 
   <h2>Conclusões</h2>
   <p>
-    [Resuma os aprendizados obtidos, os resultados alcançados e possíveis melhorias para trabalhos futuros.]
+    O projeto do Laboratório 4 – Mapa de Profundidade é uma experiência completa e desafiadora que leva o aluno a mergulhar profundamente 
+    na estereoscopia e no uso de câmeras estéreo para percepção de profundidade. Ele reúne os principais aspectos da visão computacional 
+    prática: calibração de sensores, algoritmos de correspondência estéreo, análise de erros e integração com sistemas reais.
+
+    Essa atividade contribui de forma significativa para a formação do aluno em áreas como robótica, carros autônomos, 
+    AR/VR e sistemas de visão artificial, oferecendo conhecimento prático essencial para aplicações modernas.
   </p>
 
   <h2>Referências Consultadas e Indicadas</h2>
